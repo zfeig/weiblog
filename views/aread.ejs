@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset='utf-8'>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <style>
+p.content{width: 550px;line-height: 30px;}
+div h1{font-family:'微软雅黑';font-size:26px;font-weight:normal;color: #666}
+p.tool{color: #27B9E5}
+  </style>
+  <body>
+         <div class='title'>
+          <h1><%=data.title%></h1>
+        </div>
+         <p class='tool'>发布时间：<%=data.time%>&nbsp;&nbsp;作者:<%=data.author%> &nbsp;&nbsp;Tag:<%=data.tag%></p>
+         <% if(data.thumb) {%><p><img src="<%=data.thumb%>"/></p><%}%>
+         <p class='content'>
+          <%=data.content%>
+         </P>
+</body>
+</html>

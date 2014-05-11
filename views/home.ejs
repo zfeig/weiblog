@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <style>
+span.num{color: #3EA7E3;font-weight: bold;font-style: italic;margin: 0 2px;}
+span.out a{font-size: 11px;text-decoration: none;}
+span.user{color: #3EA7E3}
+a{text-decoration: none;}
+a:hover{text-decoration: underline;}
+  </style>
+  <body>
+    <h1><%= title %></h1>
+    <p><%= title %><span class='user'><%=user%></span>&nbsp;&nbsp;<span class='out'><a href='/logout'>退出</a></span></p>
+    <p><a href='/fenye/1'>管理账号</a>&nbsp;&nbsp;<a href='/upload'>资料上传</a>&nbsp;&nbsp;<a href='/post'>发布文章</a>&nbsp;&nbsp;<a href='/article/1'>我的文章</a>&nbsp;&nbsp;<a href='/alist/1'>所有文章</a></p>
+  </body>
+</html>

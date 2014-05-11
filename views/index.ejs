@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <style>
+span.num{color: #3EA7E3;font-weight: bold;font-style: italic;margin: 0 2px;}
+  </style>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div class='user'>
+    <p>总计<span class='num'><%=count%></span>位朋友齐聚在这里进行学习交流，</p><p>刚刚加入进来的有
+    <%data.forEach(function(v){%>
+    <a><%=v.name%></a>
+<%})%>...</p>
+    </div>
+    <p><% if(user) {%><a href='/home'>用户中心</a>&nbsp;&nbsp;<%}%><a href='/reg'>注册</a>&nbsp;&nbsp;<a href='/login'>登录</a>&nbsp;&nbsp;<a href='/alist/1'>文章</a></p>
+  </body>
+</html>

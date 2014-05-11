@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    var num=<%=p%>;
+    var total=<%=total%>
+    var size=<%=size%>
+    var str=setpage(size,num,total);
+    $(".page").append(str);   
+    /*
+    @maxpage   每页显示的页码数
+    @page      当前的页数
+    @totalpage 总页数
+    */
+   function setpage(maxpage,page,totalpage){
+      var str='';
+      if(page<=0){page=1;}
+      if(page>totalpage){page=totalpage;}
+
+         var step1=page%maxpage;
+         var start=page-step1;
+         if(start<=0){start=1};
+         var step2=maxpage-page%maxpage-1;
+         var end=page+step2;
+          if(totalpage<end){
+            end=totalpage;
+          }
+          var prevpage=page-1;
+          if(prevpage<=0){prevpage=1};
+          var nextpage=page+1;
+          if(nextpage>totalpage){
+            nextpage=totalpage;
+          }
+          if(page!=1){
+            var str="<a href='/article/1'>1</a>";
+            str+="<a href='/article/"+prevpage+"'>&laquo;</a>";
+          }
+          for(var i=start;i<=end;i++){
+
+             if(i==page){
+                str+="<a href='/article/"+i+"' class='cur'>"+i+"</a>";
+              }else{
+                str+="<a href='/article/"+i+"'>"+i+"</a>";
+              }
+          }
+          if(page!=totalpage){
+            str+="<a href='/article/"+nextpage+"'>&raquo;</a>";
+            str+="<a href='/article/"+totalpage+"'>"+totalpage+"</a>";
+          }
+           
+          return str;
+   }
+
+})
+</script>
+  </head>
+  <style>
+*{padding: 0;margin:0;list-style: none}
+ul,li{list-style: none;}
+.page{width: 850px;height: 50px;margin: 1px auto;border: 0px solid #ccc;padding-top: 30px;}
+.page a{padding: 5px 8px;text-align: center;border: 1px solid #ccc;margin:1px;text-decoration: none;}
+.page a:hover{background: #ccc;color: #fff}
+.page .cur{background: #ccc;color: #fff}
+p{margin: 10px 0}
+</style>
+  <body>
+    
+    <p><%= title %></p>
+    <ul>
+      <% data.forEach(function(doc){%>
+      <li>
+        <p>标题：<%=doc.title%>&nbsp;&nbsp;&nbsp;作者：<%=doc.author%>&nbsp;&nbsp;&nbsp;发布时间：<%=doc.time%>&nbsp;&nbsp;&nbsp;<a href='/aedit/<%=doc._id%>'>[编辑]</a>&nbsp;&nbsp;<a href='/adel/<%=doc._id%>'>[删除]</a></p>
+      </li>
+        <%})%>
+    </ul>
+    <br/>
+    <p><div class='page'></div></p>
+
+  </body>
+</html>

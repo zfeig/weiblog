@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    <p><%= title %></p>
+    <ul>
+    	<% data.forEach(function(doc){%>
+    	<li>ID号：<%=doc.userid%>&nbsp;&nbsp;&nbsp;用户名：<%=doc.name%></li>
+    		<%})%>
+    </ul>
+    <br/>
+    <p><a href='/fenye/1'>查看分页版</a></p>
+  </body>
+</html>

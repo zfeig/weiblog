@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset='utf-8'>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <style>
+span{color:#3EA7E3;}
+  </style>
+  <body>
+   <h1><%= title %></h1>
+<form name='frm' method="post" action='/upload' enctype="multipart/form-data">
+         <p>文件格式：<span>(jpg,png,gif图片格式)</span></p>
+         <p><input type="file" name="file"></p>
+         <p><input type="submit" name='btn' value="上传">&nbsp;&nbsp;<input type="reset" name='ret' value="重置"></p>
+</form>
+</body>
+</html>

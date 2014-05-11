@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset='utf-8'>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+   <h1><%= title %></h1>
+<form name='frm' method="post" action='/edit'>
+         <P>ID&nbsp;&nbsp;号；<input type="text" name="userid" value="<%=data.userid%>"></p>
+         <p>用&nbsp;&nbsp;户：<input type="text" name="name" value="<%=data.name%>"></p>
+         <p>密&nbsp;&nbsp;码：<input type="password" name="password" value="<%=data.password%>"></p>
+         <p><input type="submit" name='btn' value="编辑">&nbsp;&nbsp;<input type="reset" name='ret' value="重置"></p>
+         <input type='hidden' name='id' value='<%=data._id%>'>
+         
+</form>
+</body>
+</html>
